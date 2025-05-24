@@ -9,10 +9,9 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Poppins', sans-serif;
       background: linear-gradient(to bottom, #ffffff, #f1f1f1);
       min-height: 100vh;
-      display: flex;
+      line-height: 1.62;
       justify-content: center;
       align-items: center;
       flex-direction: column;
@@ -80,14 +79,15 @@
     }
 
     .birthday-celebration h1 {
-      font-size: 3rem;
+      font-size: 2.02rem;
       color: #ff4081;
     }
 
     .birthday-celebration img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
+      width: 80vw;
+      opacity: 1;
+transition: opacity 1s ease-in-out;
+      border-radius: 20px;
       margin: 1rem 0;
       border: 5px solid white;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
@@ -132,12 +132,31 @@
     .music-player button {
       display: none; /* Hidden button – optional */
     }
+    
+   
+    p{
+      margin: 40px 0;
+      padding: 40px;
+     border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+
+    }
+    
   </style>
+  
 </head>
 <body>
 
   <div class="container" id="countdown-container">
-    <h1>Happy Birthday Countdown</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Happy Birthday <br>Shivani</h1>
+    <br>
+    <br>
+
+    <div>Remaining Days</div>
     <div class="countdown-container">
       <div class="countdown-box"><div class="big-text" id="days">00</div><div class="countdown-label">Days</div></div>
       <div class="countdown-box"><div class="big-text" id="hours">00</div><div class="countdown-label">Hours</div></div>
@@ -147,21 +166,45 @@
   </div>
 
   <div class="birthday-celebration" id="celebration">
-    <h1>Happy Birthday!</h1>
-    <img src="https://i.imgur.com/J0w9Z6x.jpg" alt="Birthday Image">
-    <p>Wishing you a day filled with love, laughter, and happiness!</p>
-    <p>May this year be your best one yet.</p>
+    <h1>Happy Birthday !<br>  Shivani 🥰</h1>
+<img id="slideshow" src="/A.jpg" alt="Birthday Image">
+
+<script>
+  const images = ["/A.jpg", "/B.jpg", "/c.jpg", "/d.jpg", "/e.jpg", "/f.jpg", "/g.jpg", "/h.jpg", "/c.jpg"]; // Your image paths
+  let index = 0;
+  const img = document.getElementById("slideshow");
+  
+  setInterval(() => {
+    // Fade out
+    img.style.opacity = 0;
+    
+    setTimeout(() => {
+      // Change image and fade in
+      index = (index + 1) % images.length;
+      img.src = images[index];
+      img.style.opacity = 1;
+    }, 1000); // Match this with the CSS transition duration
+  }, 3000); // Change image every 2 seconds
+</script>  
+
+<p>इस अदा का क्या जवाब दू, <br>अपने दोस्त को क्या उपहार दू,<br> कोई अच्छा सा  फूल होता तो माली से मंगवाता,<br> लेकिन जो खुद गुलाब है उसको क्या गुलाब दू ? <br>Happy Birthday Bestie 
+
+<p> दूर है तो क्या हुआ, आज का दिन तो हमें याद है,<br> तुम ना सही, पर तुम्हारा साया तो हमारे साथ है।<br> तुम्हें लगता है हम सब भूल जाते है, <br> पर देख लो, तुम्हारा जन्मदिन तो हमें याद है! <br> Happy Birthday Yaaara!
+
+   </p>
+    <p>  आज का दिन बहुत ही सुहाना है <br> दोस्त के जन्मदिन का बहाना है <br> मेरी उम्र भी लग जाए आपको <br> क्योंकी हमें हजार साल ये दिन मनाना है।
+  </p>
 
     <div class="music-player">
       <button onclick="playCustomMusic()">Play My Song</button>
       <audio id="custom-audio" src="https://github.com/Egsoi/Song/raw/refs/heads/main/A.mp3"></audio>
     </div>
 
-    <button class="celebration-button" id="celebrate-again">Celebrate Again</button>
+    <button   style="display: none;"  class="celebration-button" id="celebrate-again">Celebrate Again</button>
   </div>
 
   <script>
-    const birthdayInput = "25,05,2025"; // format: DD,MM,YYYY
+    const birthdayInput = "25,05,2024"; // format: DD,MM,YYYY
     const [day, month, year] = birthdayInput.split(',').map(Number);
     let birthday = new Date(year, month - 1, day, 0, 0, 0);
 
